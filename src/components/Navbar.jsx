@@ -28,12 +28,6 @@ const Navbar = () => {
           <p className="text-white text-[18px] font-bold curser-pointer flex ">Jhani | Portfolio</p>
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-10">
-        <li
-              className="text-white hover:text-white text-[18px] font-medium cursor-pointer"
-            >
-                <a href={myResume}  download="Jhani_Resume" target="_blank" rel="noreferrer">My Resume</a>
-              </li>
-      
           {navLinks.map((link) => (
             <>
            
@@ -61,11 +55,6 @@ const Navbar = () => {
           />
           <div className={`${!toggle? 'hidden': 'flex'} p-6 black-gradient absolute top-20 right-0 mx-4 min-w-[140px] z-10 rounder-xl`}>
           <ul className="list-none flex justify-end items-start flex-col gap-4">
-          <li
-              className="text-white font-poppins font-medium curser-pointer text-[16px]`"
-            >
-                <a href={myResume}  download="Jhani_Resume" target="_blank" rel="noreferrer">My Resume</a>
-              </li>
           {navLinks.map((link) => (
             <>
           
@@ -79,9 +68,11 @@ const Navbar = () => {
                 }
               }
             >
-             
+              {link.id === myResume ? 
+                  <a href={`#${link.id}`}  download="Jhani_Resume" target="_blank" rel="noreferrer">{link.title}</a> 
+                : 
                 <a href={`#${link.id}`}>{link.title}</a>
-              
+              }
             </li>
             </>
           ))}
