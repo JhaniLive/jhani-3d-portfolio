@@ -4,6 +4,7 @@ import creator from "./creator.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
+import link from "./link.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
@@ -20,15 +21,30 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import bootstrap from "./tech/bootstrap.png";
+import sass from "./tech/sass.png";
+import sharepoint from "./tech/sharepoint.png";
+import storybook from "./tech/storybook.png";
+
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
+import me from "./company/me.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+
+import mcr from './mcr.png';
+import sky from './sky.png';
+import tn from './tn.png';
+import uni from './uni.png';
+import up from './up.png';
+
+
+import myResume from './jhanip-resume.pdf'
 
 export {
   logo,
@@ -37,6 +53,7 @@ export {
   mobile,
   web,
   github,
+  link,
   menu,
   close,
   css,
@@ -53,10 +70,21 @@ export {
   typescript,
   threejs,
   meta,
+  sass,
+  bootstrap,
+  sharepoint,
+  storybook,
   shopify,
   starbucks,
   tesla,
+  me,
   carrent,
   jobit,
   tripguide,
+  mcr,
+  sky,
+  tn,
+  uni,
+  up,
+  myResume
 };
