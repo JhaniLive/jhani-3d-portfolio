@@ -10,8 +10,6 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const[toggle, setToggle] = useState(false);
 
-  
-
   return(
     <nav className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20`}>
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
@@ -28,25 +26,21 @@ const Navbar = () => {
           <p className="text-white text-[18px] font-bold curser-pointer flex ">Jhani | Portfolio</p>
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-10">
+       
         <li
-              className="text-white hover:text-white text-[18px] font-medium cursor-pointer"
-            >
-                <a href={myResume}  download="Jhani_Resume" target="_blank" rel="noreferrer">My Resume</a>
-              </li>
+            className="text-white hover:text-white text-[18px] font-medium cursor-pointer"
+          >
+              <a href={myResume}  download="Jhani_Resume" target="_blank" rel="noreferrer">My Resume</a>
+          </li>
       
           {navLinks.map((link) => (
             <>
-           
             <li
               key={link.id}
               className={`${active === link.title ? "text-white" : "text-secondary"} hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={()=> setActive(link.title)}
             >
-              {link.id === myResume ? 
-                  <a href={`#${link.id}`}  download="Jhani_Resume" target="_blank" rel="noreferrer">{link.title}</a> 
-                : 
-                  <a href={`#${link.id}`}>{link.title}</a>
-              }
+              <a href={`#${link.id}`}>{link.title}</a>
             </li>
             </>
           ))}
