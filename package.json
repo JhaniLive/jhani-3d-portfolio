@@ -12,6 +12,7 @@
     "@emailjs/browser": "^3.10.0",
     "@react-three/drei": "^9.56.24",
     "@react-three/fiber": "^8.11.1",
+    "formik": "^2.4.6",
     "framer-motion": "^9.0.7",
     "maath": "^0.5.2",
     "react": "^18.2.0",
@@ -19,7 +20,9 @@
     "react-router-dom": "^6.8.1",
     "react-vertical-timeline-component": "^3.6.0",
     "sass": "^1.89.2",
-    "three": "^0.149.0"
+    "sweetalert2": "^11.22.2",
+    "three": "^0.149.0",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
