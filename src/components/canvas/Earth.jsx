@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
+import { shouldUseMobileFallback } from "../../utils/mobileDetect";
 
 const Earth = () => {
   const earth = useGLTF("./planet/scene.gltf");
@@ -14,8 +15,12 @@ const Earth = () => {
 
 const EarthCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [useFallback, setUseFallback] = useState(false);
 
   useEffect(() => {
+    // Check if we should use mobile fallback
+    setUseFallback(shouldUseMobileFallback());
+
     // Check if mobile
     const mediaQuery = window.matchMedia("(max-width: 768px)");
     setIsMobile(mediaQuery.matches);
@@ -30,6 +35,23 @@ const EarthCanvas = () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
+
+  // Mobile fallback - show animated gradient sphere
+  if (useFallback) {
+    return (
+      <div className="w-full h-full flex items-center justify-center">
+        <div 
+          className="w-[200px] h-[200px] rounded-full shadow-lg mobile-fallback-rotate"
+          style={{
+            background: 'radial-gradient(circle at 30% 30%, #4facfe 0%, #00f2fe 50%, #1e3c72 100%)',
+            boxShadow: '0 0 50px rgba(79, 172, 254, 0.5)',
+          }}
+        >
+          <div className="w-full h-full rounded-full bg-gradient-to-br from-transparent via-white/10 to-transparent mobile-fallback-float" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <Canvas

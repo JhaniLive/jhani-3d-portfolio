@@ -9,6 +9,7 @@ import {
 } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
+import { shouldUseMobileFallback } from "../../utils/mobileDetect";
 
 const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
@@ -39,8 +40,12 @@ const Ball = (props) => {
 
 const BallCanvas = ({ icon }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const [useFallback, setUseFallback] = useState(false);
 
   useEffect(() => {
+    // Check if we should use mobile fallback
+    setUseFallback(shouldUseMobileFallback());
+
     // Check if mobile
     const mediaQuery = window.matchMedia("(max-width: 768px)");
     setIsMobile(mediaQuery.matches);
@@ -55,6 +60,19 @@ const BallCanvas = ({ icon }) => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
+
+  // Mobile fallback - show static image
+  if (useFallback) {
+    return (
+      <div className="w-28 h-28 flex justify-center items-center bg-tertiary rounded-full p-2 shadow-lg tech-icon-fallback mobile-fallback-float">
+        <img 
+          src={icon} 
+          alt="technology" 
+          className="w-16 h-16 object-contain filter brightness-110"
+        />
+      </div>
+    );
+  }
 
   return (
     <Canvas
