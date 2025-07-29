@@ -39,10 +39,7 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        I'm a skilled software web developer with experience in JavaScript, HTML and expertise in frameworks like React, and
-        CSS. I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
+        I'm an innovative frontend developer specializing in React.js, Three.js, and AI-integrated web applications. With 6+ years of experience crafting immersive digital experiences, I excel at transforming complex requirements into scalable, high-performance solutions that drive measurable business results. I thrive in collaborative environments and am passionate about leveraging cutting-edge technologies to solve real-world challenges and exceed client expectations.
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>

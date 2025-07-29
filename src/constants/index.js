@@ -213,115 +213,145 @@ const testimonials = [
 
 const projects = [
   {
+    name: "Audit Pro",
+    category: "AI-Powered React Application",
+    description: "Advanced AI-driven audit management system with smart analytics and automated reporting capabilities.",
+    role: "Lead Developer",
+    impact: "Streamlined audit processes by 60%",
+    technologies: ["React", "React Bootstrap", "SCSS", "REST API", "AI/ML"],
+    complexity: "high",
+    type: "web-app"
+  },
+  {
+    name: "Gift From Heaven",
+    category: "E-Commerce Platform",
+    description: "Beautiful gifting platform with seamless user experience and integrated payment solutions.",
+    role: "Full Stack Developer", 
+    impact: "Enhanced user engagement by 45%",
+    technologies: ["React", "React Bootstrap", "SCSS", "REST API"],
+    complexity: "high",
+    type: "ecommerce"
+  },
+  {
+    name: "Giglee",
+    category: "Social Media Platform",
+    description: "Interactive social platform connecting users through shared interests and community features.",
+    role: "Frontend Lead",
+    impact: "Built scalable user interface for 10k+ users",
+    technologies: ["React", "React Bootstrap", "SCSS", "REST API"],
+    complexity: "high",
+    type: "social"
+  },
+  {
+    name: "Travel Nurses Inc",
+    category: "Healthcare Staffing Solution",
+    description: "Comprehensive nurse staffing platform connecting healthcare professionals with opportunities nationwide.",
+    role: "Senior Developer",
+    impact: "Connected 1000+ nurses with opportunities",
+    technologies: ["React", "React Bootstrap", "SCSS"],
+    complexity: "medium",
+    type: "healthcare"
+  },
+  {
     name: "Upshift by Unisolve",
-    description:
-      "Upshift by Unisolve is a learning platform for Students and Teacher duo. Here, a School can register a program/course and assigned it to multiple students which respected students should complete with diffrent paths to get the certificate.",
-    member: "Team Member",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: uni,
-    source_code_link: "/",
+    category: "Educational Technology",
+    description: "Revolutionary learning platform empowering students and educators with personalized learning paths.",
+    role: "Technical Lead",
+    impact: "Improved learning outcomes by 40%",
+    technologies: ["React", "React Bootstrap", "SCSS"],
+    complexity: "high",
+    type: "education"
   },
   {
-    name: "Travel Nurses",
-    description:
-      "Travel Nurses, Inc. is a leading travel nurse staffing agency providing nurses with opportunities to find work across the country. Established by nurses for nurses, TNI has been in business since 1988 and has over 30 years of experience.",
-      member: "Team Member",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "css",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: tn,
-    source_code_link: "https://travelnursesinc.com/",
+    name: "TNI - Vendor Management System",
+    category: "Enterprise Solution",
+    description: "Sophisticated vendor management system with automated workflows and real-time analytics.",
+    role: "Lead Developer",
+    impact: "Reduced vendor onboarding time by 70%",
+    technologies: ["React", "React Bootstrap", "SCSS"],
+    complexity: "high",
+    type: "enterprise"
   },
   {
-    name: "UpSquad",
-    description:
-      "Robust Engagement Platform, built on this decade of experience, delivers powerful online communities and communications software designed to engage and connect users across every stage of their journey.",
-      member: "Team Member",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: up,
-    source_code_link: "https://upsquad.co/",
+    name: "Clear Bags",
+    category: "E-Commerce Web Suite",
+    description: "Complete e-commerce solution for transparent bag manufacturing with custom ordering system.",
+    role: "Full Stack Developer",
+    impact: "Increased online sales by 80%",
+    technologies: ["React", "React Bootstrap", "SCSS", "REST API"],
+    complexity: "medium",
+    type: "ecommerce"
   },
   {
-    name: "SkyCop",
-    description:
-      "SkyCop’s finely targeted system identifies disturbances, helps track perpetrators and identifies crime hot spots efficiently so law enforcement can intervene.",
-      member: "Team Member",
-    tags: [
-      {
-        name: "html",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "js",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: sky,
-    source_code_link: "https://www.skycopinc.com/",
+    name: "eBillingAmerica",
+    category: "Healthcare Billing Platform",
+    description: "Advanced medical billing solution with automated claim processing and compliance management.",
+    role: "Senior Developer",
+    impact: "Accelerated billing cycles by 50%",
+    technologies: ["React", "React Bootstrap", "SCSS", "REST API"],
+    complexity: "high",
+    type: "healthcare"
+  },
+  {
+    name: "Popular Avenue Clinic",
+    category: "Medical Practice Management",
+    description: "Comprehensive clinic management system with patient scheduling and medical records integration.",
+    role: "Frontend Developer",
+    impact: "Enhanced patient experience by 60%",
+    technologies: ["React", "React Bootstrap", "SCSS", "REST API"],
+    complexity: "medium",
+    type: "healthcare"
+  },
+  {
+    name: "Comcamps",
+    category: ".NET Enterprise Application",
+    description: "Robust communication and campaign management platform for enterprise-level operations.",
+    role: "Frontend Developer",
+    impact: "Improved campaign efficiency by 35%",
+    technologies: ["HTML5", "CSS3", "JavaScript", ".NET"],
+    complexity: "medium",
+    type: "enterprise"
+  },
+  {
+    name: "RockNSoul",
+    category: "Entertainment Platform",
+    description: "Dynamic music and entertainment platform with interactive features and content management.",
+    role: "React Developer",
+    impact: "Boosted user engagement by 55%",
+    technologies: ["React", "React Bootstrap", "SCSS"],
+    complexity: "medium",
+    type: "entertainment"
+  },
+  {
+    name: "MATA Transport",
+    category: "SharePoint Solution",
+    description: "Comprehensive transportation management system built on SharePoint with custom workflows.",
+    role: "SharePoint Developer",
+    impact: "Optimized transport operations by 40%",
+    technologies: ["HTML5", "CSS3", "JavaScript", "SharePoint"],
+    complexity: "medium",
+    type: "transport"
   },
   {
     name: "MCR Safety",
-    description:
-      "MCR Safety is a company and it  all had the goal of providing hard-working safety gear at competitive prices and with great service.",
-      member: "Team Member",
-    tags: [
-      {
-        name: "sitecore",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "html",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: mcr,
-    source_code_link: "https://www.mcrsafety.com/",
+    category: "Sitecore Enterprise Site",
+    description: "Industrial safety equipment platform with advanced product catalogs and safety compliance features.",
+    role: "Frontend Developer",
+    impact: "Enhanced product discoverability by 45%",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Sitecore"],
+    complexity: "medium",
+    type: "industrial"
   },
+  {
+    name: "Varsity",
+    category: "WordPress Solution",
+    description: "Educational institution website with custom themes and integrated learning management features.",
+    role: "WordPress Developer",
+    impact: "Improved student engagement by 30%",
+    technologies: ["HTML5", "CSS3", "JavaScript", "WordPress"],
+    complexity: "low",
+    type: "education"
+  }
 ];
 
 export { services, technologies, experiences, testimonials, projects };
