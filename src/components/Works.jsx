@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-
-import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
-import { fadeIn, textVariant } from "../utils/motion";
+import "./Works.scss";
 
 const getComplexityIcon = (complexity) => {
   switch (complexity) {
@@ -53,59 +50,60 @@ const ProjectCard = ({
   }
 
   return (
-    <div className="w-full">
-      <div className='relative group'>
-        <div className='absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt'></div>
-        <div className='relative bg-gray-900 p-8 rounded-3xl leading-none flex flex-col h-full min-h-[400px] border border-gray-800 hover:border-purple-500/50 transition-all duration-300'>
+    <div className="project-card">
+      <div 
+        className="card-container"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className="card-glow"></div>
+        <div className="card-content">
           
           {/* Header */}
-          <div className='flex items-start justify-between mb-6'>
-            <div className='flex items-center gap-3'>
-              <span className='text-3xl'>{getTypeIcon(type)}</span>
-              <div>
-                <span className='text-purple-400 text-sm font-medium uppercase tracking-wider'>{category}</span>
-                <div className='flex items-center gap-2 mt-1'>
-                  <span className='text-lg'>{getComplexityIcon(complexity)}</span>
-                  <span className='text-xs text-gray-400 capitalize'>{complexity} complexity</span>
+          <div className="card-header">
+            <div className="header-content">
+              <span className="type-icon">{getTypeIcon(type)}</span>
+              <div className="header-text">
+                <span className="category">{category}</span>
+                <div className="complexity-info">
+                  <span className="complexity-icon">{getComplexityIcon(complexity)}</span>
+                  <span className="complexity-text">{complexity} complexity</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Project Name */}
-          <h3 className='text-white font-bold text-2xl mb-3 group-hover:text-purple-300 transition-colors duration-300'>
+          <h3 className="project-name">
             {name}
           </h3>
 
           {/* Role Badge */}
-          <div className='mb-4'>
-            <span className='inline-block bg-gradient-to-r from-purple-600/20 to-blue-600/20 text-purple-300 px-3 py-1 rounded-full text-sm font-medium border border-purple-500/30'>
+          <div className="role-badge">
+            <span className="badge">
               {role}
             </span>
           </div>
 
           {/* Description */}
-          <p className='text-gray-300 text-sm leading-relaxed mb-6 flex-grow'>
+          <p className="description">
             {description}
           </p>
 
           {/* Impact */}
-          <div className='mb-6 p-4 bg-gradient-to-r from-green-900/20 to-blue-900/20 rounded-xl border border-green-500/20'>
-            <div className='flex items-center gap-2 mb-2'>
-              <span className='text-green-400'>📈</span>
-              <span className='text-green-300 font-semibold text-sm'>Impact</span>
+          <div className="impact-section">
+            <div className="impact-header">
+              <span className="impact-icon">📈</span>
+              <span className="impact-title">Impact</span>
             </div>
-            <p className='text-green-200 text-sm'>{impact}</p>
+            <p className="impact-text">{impact}</p>
           </div>
 
           {/* Technologies */}
-          <div className='mt-auto'>
-            <div className='flex flex-wrap gap-2'>
+          <div className="technologies">
+            <div className="tech-list">
               {technologies && technologies.map((tech, techIndex) => (
-                <span
-                  key={tech}
-                  className='bg-gradient-to-r from-gray-800 to-gray-700 text-white px-3 py-1 rounded-lg text-xs font-medium border border-gray-600 hover:from-purple-600/20 hover:to-blue-600/20 hover:border-purple-500/50 transition-all duration-300 cursor-default'
-                >
+                <span key={tech} className="tech-tag">
                   {tech}
                 </span>
               ))}
@@ -113,11 +111,7 @@ const ProjectCard = ({
           </div>
 
           {/* Hover Effect Overlay */}
-          <div
-            className={`absolute inset-0 bg-gradient-to-br from-purple-600/5 to-blue-600/5 rounded-3xl transition-opacity duration-300 pointer-events-none ${
-              isHovered ? 'opacity-100' : 'opacity-0'
-            }`}
-          />
+          <div className={`hover-overlay ${isHovered ? 'hovered' : ''}`} />
         </div>
       </div>
     </div>
@@ -164,125 +158,95 @@ const Works = () => {
   };
 
   return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText}`}>Portfolio Showcase</p>
-        <h2 className={`${styles.sectionHeadText}`}>Featured Projects.</h2>
-      </motion.div>
+    <div className="works-container">
+      {/* Section Header */}
+      <div className="section-header">
+        <p className="section-subtitle">Portfolio Showcase</p>
+        <h2 className="section-title">Featured Projects.</h2>
+      </div>
 
-      <div className='w-full flex'>
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          className='mt-3 text-secondary text-[17px] max-w-4xl leading-[30px]'
-        >
-          Explore my diverse portfolio of <span className="text-purple-400 font-semibold">{projects.length}+ professional projects</span> spanning 
-          healthcare, e-commerce, education, and enterprise solutions. Each project showcases my expertise in modern web technologies, 
-          AI integration, and creating impactful user experiences that drive real business results.
-        </motion.p>
+      {/* Description */}
+      <div className="description">
+        Explore my diverse portfolio of <span className="highlight">{projects.length}+ professional projects</span> spanning 
+        healthcare, e-commerce, education, and enterprise solutions. Each project showcases my expertise in modern web technologies, 
+        AI integration, and creating impactful user experiences that drive real business results.
       </div>
 
       {/* Filter Categories */}
-      <motion.div 
-        variants={fadeIn("up", "spring", 0.2, 1)}
-        className='mt-12 flex flex-wrap gap-4 justify-center'
-      >
+      <div className="filter-categories">
         {categories.map((category) => (
           <button
             key={category.value}
             onClick={() => handleFilterChange(category.value)}
-            className={`group relative px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-              filter === category.value
-                ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/25'
-                : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 border border-gray-700'
-            }`}
+            className={`filter-button ${filter === category.value ? 'active' : 'inactive'}`}
           >
-            <div className='flex items-center gap-2'>
-              <span className='text-lg'>{category.icon}</span>
-              <span>{category.label}</span>
-              <span className={`text-xs px-2 py-1 rounded-full ${
-                filter === category.value 
-                  ? 'bg-white/20 text-white' 
-                  : 'bg-purple-600/20 text-purple-300'
-              }`}>
+            <div className="button-content">
+              <span className="icon">{category.icon}</span>
+              <span className="label mobile-hidden">{category.label}</span>
+              <span className="label mobile-short">{category.label.split(' ')[0]}</span>
+              <span className={`count ${filter === category.value ? 'active-count' : 'inactive-count'}`}>
                 {category.count}
               </span>
             </div>
           </button>
         ))}
-      </motion.div>
+      </div>
 
       {/* Projects Stats */}
-      <motion.div 
-        variants={fadeIn("up", "spring", 0.3, 1)}
-        className='mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto'
-      >
-        <div className='text-center p-4 bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-xl border border-purple-500/20'>
-          <div className='text-2xl font-bold text-purple-400'>{projects.length}+</div>
-          <div className='text-sm text-gray-400'>Total Projects</div>
+      <div className="stats-section">
+        <div className="stat-card projects-stat">
+          <div className="stat-number purple">{projects.length}+</div>
+          <div className="stat-label">Total Projects</div>
         </div>
-        <div className='text-center p-4 bg-gradient-to-br from-green-900/20 to-blue-900/20 rounded-xl border border-green-500/20'>
-          <div className='text-2xl font-bold text-green-400'>5+</div>
-          <div className='text-sm text-gray-400'>Years Experience</div>
+        <div className="stat-card experience-stat">
+          <div className="stat-number green">5+</div>
+          <div className="stat-label">Years Experience</div>
         </div>
-        <div className='text-center p-4 bg-gradient-to-br from-orange-900/20 to-red-900/20 rounded-xl border border-orange-500/20'>
-          <div className='text-2xl font-bold text-orange-400'>50+</div>
-          <div className='text-sm text-gray-400'>Technologies Used</div>
+        <div className="stat-card tech-stat">
+          <div className="stat-number orange">50+</div>
+          <div className="stat-label">Technologies Used</div>
         </div>
-      </motion.div>
-
+      </div>
 
       {/* Project Grid */}
-      <div 
-        key={`${filter}-${currentVisibleCount}`}
-        className='mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
-      >
+      <div className="project-grid" key={`${filter}-${currentVisibleCount}`}>
         {displayedProjects && displayedProjects.length > 0 ? (
           displayedProjects.map((project, index) => (
             <ProjectCard key={`${filter}-${project.name}-${index}`} index={index} {...project} />
           ))
         ) : (
-          <div className='col-span-full text-center py-12'>
-            <p className='text-gray-400 text-lg'>No projects found for this category.</p>
-            <p className='text-sm text-gray-500 mt-2'>Filter: {filter}, Available: {filteredProjects.length}</p>
+          <div className="no-projects">
+            <p className="no-projects-title">No projects found for this category.</p>
+            <p className="no-projects-subtitle">Filter: {filter}, Available: {filteredProjects.length}</p>
           </div>
         )}
       </div>
 
-
       {/* Load More Button */}
       {hasMore && (
-        <motion.div 
-          variants={fadeIn("up", "spring", 0.5, 1)}
-          className='mt-12 text-center'
-        >
-          <button
-            onClick={handleLoadMore}
-            className='group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 overflow-hidden'
-          >
-            <span className='relative z-10 flex items-center gap-2'>
+        <div className="load-more-section">
+          <button onClick={handleLoadMore} className="load-more-button">
+            <span className="button-content">
               <span>Load More Projects ({Math.min(6, filteredProjects.length - currentVisibleCount)} more)</span>
-              <span className='group-hover:translate-x-1 transition-transform duration-300'>→</span>
+              <span className="arrow">→</span>
             </span>
-            <div className='absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300'></div>
+            <div className="button-overlay"></div>
           </button>
-        </motion.div>
+        </div>
       )}
 
       {/* Achievement Banner */}
-      <motion.div 
-        variants={fadeIn("up", "spring", 0.6, 1)}
-        className='mt-16 p-8 bg-gradient-to-r from-purple-900/20 via-blue-900/20 to-green-900/20 rounded-3xl border border-purple-500/20 text-center'
-      >
-        <h3 className='text-2xl font-bold text-white mb-4'>
+      <div className="achievement-banner">
+        <h3 className="banner-title">
           🎯 Delivering Excellence Across Industries
         </h3>
-        <p className='text-gray-300 max-w-3xl mx-auto leading-relaxed'>
+        <p className="banner-text">
           From AI-powered healthcare solutions to scalable e-commerce platforms, my projects have consistently 
           delivered measurable results. Each solution is crafted with attention to user experience, 
           performance optimization, and business impact.
         </p>
-      </motion.div>
-    </>
+      </div>
+    </div>
   );
 };
 
