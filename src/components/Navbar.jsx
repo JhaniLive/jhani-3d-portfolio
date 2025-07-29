@@ -49,7 +49,17 @@ const Navbar = () => {
           ))}
         </ul>
         {/* FOR MOBILE MENU */}
-        <div className="sm:hidden flex flex-1 justify-end items-center">
+        <div className="sm:hidden flex flex-1 justify-end items-center gap-4">
+          {/* Direct Resume Download Button for Mobile */}
+          <a 
+            href={myResume} 
+            download="Jhani_Resume" 
+            target="_blank" 
+            rel="noreferrer"
+            className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-3 py-2 rounded-lg text-sm font-medium hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg"
+          >
+            Resume
+          </a>
           <img
             src={toggle ? close : menu}
             alt="menu"
@@ -58,11 +68,6 @@ const Navbar = () => {
           />
           <div className={`${!toggle? 'hidden': 'flex'} p-6 black-gradient absolute top-20 right-0 mx-4 min-w-[140px] z-10 rounder-xl`}>
           <ul className="list-none flex justify-end items-start flex-col gap-4">
-          <li
-              className="text-white font-poppins font-medium curser-pointer text-[16px]"
-            >
-                <a href={myResume}  download="Jhani_Resume" target="_blank" rel="noreferrer">My Resume</a>
-              </li>
           {navLinks.map((link) => (
             <>
           
